@@ -1,12 +1,9 @@
 <template>
   <div class="question">
-            <div class="header">
-                <h1>TEST1</h1>
-            </div>
             <div class="Question">
               <div class="title">
                 <h1>Q7</h1>
-                <h2>คุณรู้จัก Globish ผ่านช่องทางใด (เลือกได้มากกว่า 1 ข้อ) </h2>
+                <h5>{{ QUESTION_Q7 }}</h5>
               </div>
               <!-- <div>Checked names: {{ checkedNames }}</div> -->
               <div class="content">
@@ -16,7 +13,7 @@
                   @click="handleButtonClick('Instagram')"
                   :class="{ clicked: checkedNames.includes('Instagram') }"
                 >
-                  Instagram
+                  {{ CHOICE_A_Q7 }}
                 </button>
                 <button
                   type="submit"
@@ -24,7 +21,7 @@
                   @click="handleButtonClick('Facebook')"
                   :class="{ clicked: checkedNames.includes('Facebook') }"
                 >
-                  Facebook
+                  {{ CHOICE_B_Q7 }}
                 </button>
                 <button
                   type="submit"
@@ -32,7 +29,7 @@
                   @click="handleButtonClick('อื่นๆ ( โปรดระบุ )')"
                   :class="{ clicked: checkedNames.includes('อื่นๆ ( โปรดระบุ )') }"
                 >
-                  อื่นๆ ( โปรดระบุ )
+                  {{ CHOICE_C_Q7 }}
                 </button>
               </div>
                   <!-- <p>Message is: {{ recommendedByFriend }}</p> -->
@@ -58,21 +55,24 @@
 import { defineComponent, ref } from 'vue'
 import 'vue3-carousel/dist/carousel.css'
 import { useStore } from 'vuex'
+import { QUESTION } from '@/utils/constants'
+
 
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Q7',
   setup () {
     const store = useStore()
-    const selectedValues = store.getters.getSelectedValues
-    console.log('🚀 ~ setup ~ selectedValues:', selectedValues)
-    console.log('🚀 ~ Q7:', selectedValues)
     const checkedNames = ref<string[]>([])
     const recommendedByFriend = ref<string>('')
     var checkDisabled: any
+    var QUESTION_Q7 = QUESTION.QUESTION_Q7
+    var CHOICE_A_Q7 = QUESTION.CHOICE_A_Q7
+    var CHOICE_B_Q7 = QUESTION.CHOICE_B_Q7
+    var CHOICE_C_Q7 = QUESTION.CHOICE_C_Q7
+
 
     const handleButtonClick = (value: string) => {
-      console.log('🚀 ~ handleButtonClick ~ value:', value)
       if (value === 'อื่นๆ ( โปรดระบุ )') {
         checkDisabled = false
       } else {
@@ -85,58 +85,37 @@ export default defineComponent({
         checkedNames.value = checkedNames.value.filter((name) => name !== value)
         store.commit('removeSelectedLastValue', value)
       }
-
-      console.log('🚀 ~ handleButtonClick ~ checkDisabled:', checkDisabled)
     }
 
     const changeText = (value: string) => {
       store.commit('addText', value)
     }
 
-    return { checkedNames, handleButtonClick, recommendedByFriend, changeText, checkDisabled }
+    return { checkedNames, handleButtonClick, recommendedByFriend, changeText, checkDisabled, QUESTION_Q7, CHOICE_A_Q7, CHOICE_B_Q7, CHOICE_C_Q7 }
   }
 })
 </script>
 
 <style scoped>
 .question {
-  width: 720px;
-  height: 80vh;
+  width: 725px;
   background-color: rgb(125, 214, 255);
   justify-content: center;
 }
-
-.carousel {
- /* border: 2px solid rgb(255, 0, 170); */
- width: 720px;
- height: 1600px;
-}
-
-.header h1 {
-  color: rgb(125, 214, 255);
-}
-
 .Question {
-  margin-left: 5vh;
   padding: 2vh;
-  /* margin-top: 5vh; */
   border: 1px solid rgb(19, 19, 19);
-  /* color: rgb(255, 0, 0); */
   background-color: rgb(255, 255, 255);
-  height: 950px;
-  width: 40vh;
   border-radius: 20px;
 
 }
 .title h1 {
-  /* border: 2px solid rgb(30, 255, 0); */
-  padding-top: 4vh;
   color: rgb(202, 202, 202);
-  font-size: 60px;
+  font-size: 50px;
   font-style:oblique;
 }
 
-.title h2 {
+.title h5 {
   padding-top: 1vh;
   color: rgb(39, 39, 39);
   font: bolder;
@@ -144,19 +123,11 @@ export default defineComponent({
 }
 
 .button_custom {
-  /* margin-left: 2vh; */
-  margin-top: 50px;
-  margin: 3vh;
-  /* margin-left: 1vh; */
   display: flex;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
-  /* border: 2px solid rgb(255, 145, 0); */
 }
 
 .content{
-  /* border: 2px solid rgb(255, 145, 0); */
-  margin-top: 4vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -170,7 +141,8 @@ export default defineComponent({
   border-radius: 30px;
   border: 2px solid rgb(232, 232, 232);
   background-color: white;
-  font-size: 25px;
+  font-size: 15px;
+  font-style: italic;
   text-align: left;
 }
 
@@ -183,9 +155,7 @@ export default defineComponent({
 /* CSS */
 .button-32 {
   font-size: 30px;
-  margin-top: 5vh;
-  /* margin: 10px; */
-  padding: 1vh 9vh;
+  padding: 1vh 10vh;
   background-color: #ffb700;
   border: 1px solid black;
   border-radius: 50px;
@@ -199,7 +169,6 @@ export default defineComponent({
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-bottom: 12vh;
 }
 
 .button-32:not(:disabled):hover,
@@ -217,9 +186,7 @@ export default defineComponent({
 
 .button-31 {
   font-size: 30px;
-  /* margin: 10px; */
-  margin-top: 5vh;
-  padding: 1vh 4vh;
+  padding: 1vh 10vh;
   background-color: #ffffff;
   border: 1px solid black;
   border-radius: 50px;
@@ -233,7 +200,6 @@ export default defineComponent({
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-bottom: 12vh;
 }
 
 .button-31:not(:disabled):hover,
@@ -256,14 +222,11 @@ export default defineComponent({
 
 .recommended_input {
   margin-top: 3vh;
-  font-size: 25px;
+  font-size: 15px;
   padding: 20px;
-  width: 90%;
-  /* border-radius: 15px; */
+  width: 80%;
   border: 2px solid rgb(255, 255, 255);
   border-bottom: 2px solid #1b1b1b;
-  /* border-top: #000 ; */
-  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 0px 2px 0px, rgba(60, 64, 67, 0.15) 0px 0px 3px 0px; */
 }
 
 </style>

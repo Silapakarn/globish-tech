@@ -1,15 +1,12 @@
 <template>
   <div class="question">
-    <div class="header">
-      <h1>TEST1</h1>
-    </div>
     <div class="Question">
       <div class="content">
         <h1 class="font_result">ผลลัพธ์ของคุณคือ</h1>
         <template v-if="resultScore === 'A'">
           <div class="img_result">
             <img src="../assets/image 12.png" alt="Italian Trulli">
-            <h1>{{ resultScore }}</h1>
+            <!-- <h1>{{ resultScore }}</h1> -->
             <h2 class="globish_text">คุณรู้จัก Globish ผ่าน</h2>
             <h2>{{ text }}</h2>
             <h2>{{ recommendedByFriend }}</h2>
@@ -18,7 +15,7 @@
         <template v-if="resultScore === 'B'">
           <div class="img_result">
             <img src="../assets/image 13.png" alt="Italian Trulli">
-            <h1>{{ resultScore }}</h1>
+            <!-- <h1>{{ resultScore }}</h1> -->
             <h2 class="globish_text">คุณรู้จัก Globish ผ่าน</h2>
             <h2>{{ text }}</h2>
             <h2>{{ recommendedByFriend }}</h2>
@@ -27,7 +24,7 @@
         <template v-if="resultScore === 'C'">
           <div class="img_result">
             <img src="../assets/image 14.png" alt="Italian Trulli">
-            <h1>{{ resultScore }}</h1>
+            <!-- <h1>{{ resultScore }}</h1> -->
             <h2 class="globish_text">คุณรู้จัก Globish ผ่าน</h2>
             <h2>{{ text }}</h2>
             <h2>{{ recommendedByFriend }}</h2>
@@ -95,30 +92,20 @@ export default defineComponent({
 
 <style scoped>
 .question {
-  width: 720px;
-  height: 100vh;
+  /* width: 720px; */
+  /* height: 100vh; */
   background-color: rgb(125, 214, 255);
   justify-content: center;
 }
 
-.carousel {
- /* border: 2px solid rgb(255, 0, 170); */
- width: 720px;
- height: 1600px;
-}
-
-.header h1 {
-  color: rgb(125, 214, 255);
-}
-
 .Question {
-  margin-left: 5vh;
+  /* margin-left: 5vh; */
   /* margin-top: 5vh; */
   border: 1px solid rgb(35, 35, 35);
   /* color: rgb(255, 0, 0); */
   background-color: rgb(255, 255, 255);
-  height: 1200px;
-  width: 40vh;
+  /* height: 1200px; */
+  /* width: 40vh; */
   border-radius: 20px;
 }
 
@@ -134,19 +121,19 @@ export default defineComponent({
 }
 
 .font_result {
-  font-size: 60px;
+  font-size: 30px;
   /* border: 2px solid rgb(0, 8, 255); */
   margin-top: 7vh;
 }
 
 .img_result img {
-  margin-top: 5vh;
+  /* margin-top: 5vh; */
   width: 100%;
   /* border: 2px solid rgb(255, 128, 0); */
 }
 
-.img_result h1 {
-  font-size: 40px;
+.img_result h2 {
+  font-size: 20px;
 }
 
 .globish_text {

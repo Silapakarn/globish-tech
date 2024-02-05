@@ -1,8 +1,5 @@
 <template>
   <div class="question">
-            <div class="header">
-                <h1>TEST1</h1>
-            </div>
             <div class="Question">
               <div class="title">
                 <h1>Q1</h1>
@@ -10,19 +7,11 @@
               </div>
               <!-- <div>Checked names: {{ checkedNames }}</div> -->
               <div class="content">
-                <button type="submit" class="button_Q" @click="handleButtonClick(10)">{{ CHOICE_A_Q1 }}</button>
-                <button type="submit" class="button_Q" @click="handleButtonClick(20)">{{ CHOICE_B_Q1 }}</button>
-                <button type="submit" class="button_Q" @click="handleButtonClick(30)">{{ CHOICE_C_Q1 }}</button>
+                <button type="submit" :class="{ 'button_Q': true, 'clicked': checkedNames.includes(10) }" @click="handleButtonClick(10)">{{ CHOICE_A_Q1 }}</button>
+                <button type="submit" :class="{ 'button_Q': true, 'clicked': checkedNames.includes(20) }" @click="handleButtonClick(20)">{{ CHOICE_B_Q1 }}</button>
+                <button type="submit" :class="{ 'button_Q': true, 'clicked': checkedNames.includes(30) }" @click="handleButtonClick(30)">{{ CHOICE_C_Q1 }}</button>
               </div>
             </div>
-            <!-- <div class="button_custom">
-              <router-link to="/">
-                <button type="submit" class="button-31">กลับ</button>
-              </router-link>
-              <router-link to="/q2">
-                <button type="submit" class="button-32">ต่อไป</button>
-              </router-link>AboutView
-            </div> -->
         </div>
 </template>
 
@@ -60,36 +49,19 @@ export default defineComponent({
 
 <style scoped>
 .question {
-  width: 720px;
-  height: 70vh;
   background-color: rgb(125, 214, 255);
   justify-content: center;
 }
 
-.carousel {
- /* border: 2px solid rgb(255, 0, 170); */
- width: 720px;
- height: 1600px;
-}
-
-.header h1 {
-  color: rgb(125, 214, 255);
-}
-
 .Question {
-  margin-left: 5vh;
-  /* margin-top: 5vh; */
   padding: 2vh;
   border: 1px solid rgb(19, 19, 19);
-  /* color: rgb(255, 0, 0); */
   background-color: rgb(255, 255, 255);
-  height: 800px;
-  width: 40vh;
+  width: 60vh;
   border-radius: 20px;
 }
 .title h1 {
-  /* border: 2px solid rgb(30, 255, 0); */
-  padding-top: 4vh;
+  padding-top: 2vh;
   color: rgb(202, 202, 202);
   font-size: 60px;
   font-style:oblique;
@@ -97,24 +69,20 @@ export default defineComponent({
 
 .title h2 {
   padding-top: 1vh;
+  font-size: 20px;
   color: rgb(39, 39, 39);
   font: bolder;
   font-style: italic;
 }
 
 .button_custom {
-  /* margin-left: 2vh; */
   margin-top: 50px;
   margin: 3vh;
-  /* margin-left: 1vh; */
   display: flex;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
-  /* border: 2px solid rgb(255, 145, 0); */
 }
 
 .content{
-  /* border: 2px solid rgb(255, 145, 0); */
   margin-top: 4vh;
   display: flex;
   align-items: center;
@@ -129,11 +97,12 @@ export default defineComponent({
   border-radius: 30px;
   border: 2px solid rgb(232, 232, 232);
   background-color: white;
-  font-size: 25px;
+  font-size: 20px;
   text-align: left;
 }
 
-.button_Q:hover {
+.button_Q:hover,
+.button_Q.clicked {
   background-color: #f47055;
   color: #fff;
 }

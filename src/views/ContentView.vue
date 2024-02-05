@@ -106,20 +106,19 @@ export default defineComponent({
 .carousel {
   display: flex;
   flex-direction: column;
-
 }
 
 .slide_content {
-  margin-top: 5vh;
-  height: 80vh;
+  height: 90vh;
 }
 
 .button_custom {
+  margin-top: 4vh;
   /* margin-left: 2vh; */
-  margin: 3vh;
+ /*  margin: 3vh; 
   /* margin-left: 1vh; */
   display: flex;
-  width: 90%;
+  width: 100%;
   justify-content: space-between;
   /* flex-wrap: wrap; */
 }
@@ -163,7 +162,6 @@ export default defineComponent({
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-bottom: 12vh;
 }
 
 .button-32:not(:disabled):hover,
@@ -196,7 +194,6 @@ export default defineComponent({
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-bottom: 12vh;
 }
 
 .button-31:not(:disabled):hover,

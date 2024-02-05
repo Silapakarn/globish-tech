@@ -13,6 +13,7 @@
   text-align: center;
   color: #2c3e50;
   height: 100vh;
+  border: 2px solid red;
   background-color: rgb(125, 214, 255);
 }
 

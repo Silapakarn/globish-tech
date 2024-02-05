@@ -20,12 +20,16 @@ export default {
 
 <style scoped>
 .home {
-  /* border: 2px solid red; */
   background-image: url("../../src//assets/image 15.png");
+  /* border: 5px solid rgb(255, 204, 0); */
   background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
   justify-content: center;
-  width: 720px;
-  height: 100vh;
+  margin: 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 h3 {
   margin: 40px 0 0;
@@ -45,7 +49,7 @@ a {
 /* CSS */
 .button-32 {
   font-size: 40px;
-  margin: 10px;
+  /* margin: 10px; */
   padding: 1vh 14vh;
   background-color: #ffb700;
   border: 1px solid black;
@@ -67,6 +71,7 @@ a {
 .button-32:not(:disabled):focus {
   outline: 0;
   background: #f49c03;
+  color: white;
   box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
 }
 
